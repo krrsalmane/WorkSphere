@@ -1,11 +1,80 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WorkSphere</title>
+    <title>WorkSphere - Division du plan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    
+
+<body class="bg-gray-100 min-h-screen flex items-center justify-center p-4">
+
+    <main class="flex-grow p-2 sm:p-4 overflow-y-auto order-1">
+
+        <div id="floor-plan-area"
+            class="relative shadow-2xl rounded-xl w-full h-[40vh] md:h-[50vh] lg:h-[90vh] border-4 border-blue-500"
+            style="background-image: url('plan-69159a65c5684763515973.jpg'); background-size: cover; background-repeat: no-repeat; background-position: center;">
+
+            <div class="absolute top-0 left-0 w-full h-full grid grid-cols-5 grid-rows-6 gap-1 md:gap-2">
+
+                <div id="zone-conference"
+                    class="zone-area col-span-2 row-span-2 bg-red-500/90 flex flex-col justify-between items-center p-1 md:p-2 text-center text-white font-bold border border-white/40 relative text-xs md:text-sm">
+                    <span>1. Conf. Room</span>
+                    <button
+                        class="add-employee-zone-btn p-1 bg-white text-gray-800 rounded-full w-6 h-6 md:w-8 md:h-8 flex justify-center items-center shadow-md hover:bg-gray-200 text-xs md:text-sm opacity-80">
+
+                    </button>
+                </div>
+
+                <div id="zone-reception"
+                    class="zone-area row-span-2 col-start-4 bg-red-300/80 hover:bg-red-400/90 flex flex-col justify-between items-center p-1 md:p-2 text-center text-gray-900 font-bold border border-white/40 relative text-xs md:text-sm">
+                    <span>2.Staff Room </span>
+                    <button
+                        class="add-employee-zone-btn p-1 bg-white text-gray-800 rounded-full w-6 h-6 md:w-8 md:h-8 flex justify-center items-center shadow-md hover:bg-gray-200 text-xs md:text-sm opacity-80">
+
+                    </button>
+                </div>
+
+                <div id="zone-staff-room"
+                    class="zone-area col-span-2 row-span-4 col-start-1 row-start-3 bg-blue-500/90 flex flex-col justify-between  p-1 md:p-2 text-center text-white font-bold border border-white/40 relative text-xs md:text-sm">
+                    <span>3.  Reception</span>
+                    <button
+                        class="add-employee-zone-btn p-1 bg-white text-gray-800 rounded-full w-6 h-6 md:w-8 md:h-8 flex justify-center items-center shadow-md hover:bg-gray-200 text-xs md:text-sm opacity-80">
+
+                    </button>
+                </div>
+
+                <div id="zone-archives"
+                    class="zone-area row-span-2 row-start-5  col-start-4  bg-red-300/80 hover:bg-red-400/90 flex flex-col justify-between items-center p-1 md:p-2 text-center text-gray-900 font-bold border border-white/40 relative text-xs md:text-sm">
+                    <span>4. Archives</span>
+                    <button
+                        class="add-employee-zone-btn p-1 bg-white text-gray-800 rounded-full w-6 h-6 md:w-8 md:h-8 flex justify-center items-center shadow-md hover:bg-gray-200 text-xs md:text-sm opacity-80">
+
+                    </button>
+                </div>
+
+                <div id="zone-security"
+                    class="zone-area row-span-2 col-start-5 row-start-5 bg-red-300/80 hover:bg-red-400/90 flex flex-col justify-between items-center p-1 md:p-2 text-center text-gray-900 font-bold border border-white/40 relative text-xs md:text-sm">
+                    <span>5. Security</span>
+                    <button
+                        class="add-employee-zone-btn p-1 bg-white text-gray-800 rounded-full w-6 h-6 md:w-8 md:h-8 flex justify-center items-center shadow-md hover:bg-gray-200 text-xs md:text-sm opacity-80">
+
+                    </button>
+                </div>
+
+                <div id="zone-server"
+                    class="zone-area row-span-2 col-start-5 row-start-1 bg-red-300/80 hover:bg-red-400/90 flex flex-col justify-between items-center p-1 md:p-2 text-center text-gray-900 font-bold border border-white/40 relative text-xs md:text-sm">
+                    <span>6. Server Room</span>
+                    <button
+                        class="add-employee-zone-btn p-1 bg-white text-gray-800 rounded-full w-6 h-6 md:w-8 md:h-8 flex justify-center items-center shadow-md hover:bg-gray-200 text-xs md:text-sm opacity-80">
+
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </main>
 </body>
+
 </html>
