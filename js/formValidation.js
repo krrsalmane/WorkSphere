@@ -26,3 +26,26 @@ document.getElementById('open-modal-btn').onclick = () =>
             `;
             container.appendChild(div);
         }
+
+const email = document.getElementById('email');
+const phone = document.getElementById('phone');
+const employeeForm = document.getElementById('employeeForm');
+const error = document.getElementById('error');
+const fullName = document.getElementById('fullName')
+
+
+employeeForm.addEventListener('submit',(e) =>{
+      e.preventDefault()
+let messages = [];
+if(fullName.value === '' || fullName.value == null){
+    messages.push('fullName is required')
+}
+if(messages.length>0){
+  
+    error.innerText = messages.join(', ')
+}
+
+})
+        
+        const emailRegex =/^[A-Za-z\s]+[@]+[A-Za-z]$/;
+        const phoneRegex = /^[0-9],{10}$/;
