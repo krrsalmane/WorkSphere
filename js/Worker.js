@@ -47,5 +47,67 @@ function removeEmployee(index) {
     displayEmployees();
 }
 
+function showEmployeeDetails(index) {
+    const employees = JSON.parse(localStorage.getItem('employeeForm')) || [];
+    const employee = employees[index];
+
+    if (!employee) {
+        console.error('Employee not found at index:', index);
+        return;
+    }
+
+    // Populate the modal with employee data
+    document.getElementById('detailsPhoto').src = employee.photoUrl || 'images/manager.png';
+    document.getElementById('detailsFullName').innerText = employee.fullName;
+    document.getElementById('detailsRole').innerText = employee.role;
+    document.getElementById('detailsEmail').innerText = employee.email;
+    document.getElementById('detailsPhone').innerText = employee.phone;
+
+    const experiencesContainer = document.getElementById('detailsExperiences');
+    experiencesContainer.innerHTML = ''; // Clear previous experiences
+
+    // Extract experiences from the flat formData object
+    const experienceEntries = [];
+    let i = 0;
+    while (employee[`experiencesContainer[${i}][jobTitle]`] !== undefined) {
+        experienceEntries.push({
+            jobTitle: employee[`experiencesContainer[${i}][jobTitle]`],
+            company: employee[`experiencesContainer[${i}][company]`],
+            startDate: employee[`experiencesContainer[${i}][startDate]`],
+            endDate: employee[`experiencesContainer[${i}][endDate]`],
+        });
+        i++;
+    }
+
+    if (experienceEntries.length > 0) {
+        let hasValidExperiences = false;
+        experienceEntries.forEach(exp => {
+            // Only display if at least jobTitle or company is not empty
+            if (exp.jobTitle || exp.company) {
+                hasValidExperiences = true;
+                const expDiv = document.createElement('div');
+                expDiv.className = 'bg-gray-100 p-2 rounded-md';
+                expDiv.innerHTML = `
+                    <p class="font-medium">${exp.jobTitle || 'N/A'} at ${exp.company || 'N/A'}</p>
+                    <p class="text-sm text-gray-600">${exp.startDate || 'N/A'} - ${exp.endDate || 'N/A'}</p>
+                `;
+                experiencesContainer.appendChild(expDiv);
+            }
+        });
+        if (!hasValidExperiences) {
+            experiencesContainer.innerHTML = '<p class="text-gray-500">No experience listed.</p>';
+        }
+    } else {
+        experiencesContainer.innerHTML = '<p class="text-gray-500">No experience listed.</p>';
+    }
+
+
+    document.getElementById('employeeDetailsModal').classList.remove('hidden');
+}
+
+function closeDetailsModal() {
+    document.getElementById('employeeDetailsModal').classList.add('hidden');
+}
+
 
 window.addEventListener('DOMContentLoaded', displayEmployees);
