@@ -13,7 +13,7 @@ function displayEmployees() {
         const markup = `
         <li id="emp-${index}" draggable="true" class="bg-gray-50 rounded-lg border border-gray-200 p-3 employee-card hover:z-50">
             <div class="flex flex-col sm:flex-row items-start sm:items-center gap-3">
-                <img src="${employee.photoUrl || 'assets/guy.png'}" alt="Employee" class="w-12 h-12 rounded-full">
+                <img src="${employee.photoUrl || 'images/manager.png'}" alt="Employee" class="w-12 h-12 rounded-full">
                 <div class="emp-info flex-1 min-w-0">
                     <div class="font-medium truncate">${employee.fullName}</div>
                     <div class="text-sm text-gray-600 truncate">${employee.role}</div>
@@ -39,5 +39,6 @@ function displayEmployees() {
         sidebarList.insertAdjacentHTML('beforeend', markup);
     });
 }
+
 
 window.addEventListener('DOMContentLoaded', displayEmployees);
