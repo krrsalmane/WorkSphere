@@ -81,28 +81,7 @@ function validateExperienceDates() {
 }
 
 employeeForm.addEventListener('submit', (e) => {
-
     e.preventDefault();
-  
-    
-const form = document.getElementById('employeeForm');
-
-form.addEventListener('submit', (e) => {
-    e.preventDefault();
-
-   const formData = Object.fromEntries(new FormData(form).entries());
-
-    let employees = JSON.parse(localStorage.getItem('employeeForm'));
-    if (!Array.isArray(employees)) employees = [];
-
-    employees.push(formData);
-    localStorage.setItem('employeeForm', JSON.stringify(employees));
-
-    displayEmployees();
-    form.reset();
-    closeModal();
-});
-
 
     // 1. Reset all errors and status messages
     fullNameError.innerText = '';
@@ -115,34 +94,28 @@ form.addEventListener('submit', (e) => {
     let isValid = true;
 
     // --- A. Required Field Checks ---
-
     if (!fullName.value) {
         fullNameError.innerText = 'Full Name is required.';
         isValid = false;
     }
-
     if (!role.value) {
         roleError.innerText = 'Please select a role.';
         isValid = false;
     }
-
     if (!email.value) {
         emailError.innerText = 'Email is required.';
         isValid = false;
     }
-
     if (!phone.value) {
         phoneError.innerText = 'Phone is required.';
         isValid = false;
     }
 
-
-
+    // --- B. Format/Regex Checks ---
     if (email.value && !emailRegex.test(email.value)) {
         emailError.innerText = 'Email format is invalid.';
         isValid = false;
     }
-
     if (phone.value) {
         const cleanPhone = phone.value.replace(/[\s()-]/g, '');
         if (!phoneRegex.test(cleanPhone)) {
@@ -151,24 +124,26 @@ form.addEventListener('submit', (e) => {
         }
     }
 
-
+    // --- C. Custom Logic Checks ---
     if (!validateExperienceDates()) {
         experienceError.innerText = 'One or more End Dates are before the Start Date.';
         isValid = false;
     }
 
-
+    // --- D. Final Decision ---
     if (isValid) {
+        // Form is valid, process the data
+        const formData = Object.fromEntries(new FormData(employeeForm).entries());
 
-        generalMessage.innerText = 'Form submitted successfully!';
-        generalMessage.classList.add('text-green-600');
-        generalMessage.classList.remove('text-red-600');
+        let employees = JSON.parse(localStorage.getItem('employeeForm')) || [];
+        employees.push(formData);
+        localStorage.setItem('employeeForm', JSON.stringify(employees));
 
-        console.log('Form data is valid and ready to send to server.');
-
+        displayEmployees(); // Refresh the list in the sidebar
+        closeModal(); // Close the modal and reset the form
 
     } else {
-
+        // Form is invalid, show a general error message
         generalMessage.innerText = 'Please correct the highlighted errors above.';
         generalMessage.classList.add('text-red-600');
         generalMessage.classList.remove('text-green-600');

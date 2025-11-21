@@ -40,5 +40,12 @@ function displayEmployees() {
     });
 }
 
+function removeEmployee(index) {
+    const employees = JSON.parse(localStorage.getItem('employeeForm')) || [];
+    employees.splice(index, 1);
+    localStorage.setItem('employeeForm', JSON.stringify(employees));
+    displayEmployees();
+}
+
 
 window.addEventListener('DOMContentLoaded', displayEmployees);
