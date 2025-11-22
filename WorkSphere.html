@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Employee Floor Plan Manager (V7 - Final)</title>
+    <title>Employee Floor Plan Manager </title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
@@ -22,66 +22,85 @@
                 <div class="absolute top-0 left-0 w-full h-full grid grid-cols-16 grid-rows-6 gap-1 md:gap-2">
 
                     <div id="zone-conference"
-                        class="zone-area col-span-2 row-span-2 flex flex-col items-center mt-12 p-1 md:p-2 text-center text-black font-bold relative text-xs md:text-sm gap-1 flex-wrap justify-start"
+                        class="zone-area col-span-2 row-span-2 flex flex-col items-center mt-12 p-1 md:p-2 text-center text-black font-bold relative text-xs md:text-sm"
                         data-zone="conference">
-                        <span>1. Conf. Room</span>
+                        <div class="flex flex-col items-center flex-grow overflow-y-auto w-full">
+                            <span>Conference Room</span>
+                            <div class="employee-cards-container flex flex-col gap-1 justify-center mt-1"></div>
+                        </div>
+                        
                         <button
-                            class="add-employee-zone-btn p-1 bg-white text-gray-800 rounded-full w-6 h-6 md:w-8 md:h-8 flex justify-center items-center shadow-md hover:bg-gray-200 text-xs md:text-sm opacity-80"
+                            class="add-employee-zone-btn p-1 bg-white text-gray-800 rounded-full w-6 h-6 md:w-8 md:h-8 flex justify-center items-center shadow-md hover:bg-gray-200 text-xs md:text-sm opacity-80 absolute bottom-2 right-2"
                             title="Add Employee">
                             <i class="fas fa-plus"></i>
                         </button>
                     </div>
 
                     <div id="zone-reception"
-                        class="zone-area row-span-2 col-start-4 mt-16 flex flex-col items-center p-1 md:p-2 text-center text-gray-900 font-bold relative text-xs md:text-sm gap-1 flex-wrap justify-start"
-                        data-zone="reception">
-                        <span>4. Staff Room</span>
+                        class="zone-area row-span-2 col-start-4 mt-16 flex flex-col items-center p-1 md:p-2 text-center text-gray-900 font-bold relative text-xs md:text-sm"
+                        data-zone="staff-room">
+                        <div class="flex flex-col items-center flex-grow overflow-y-auto w-full">
+                            <span>Staff Room</span>
+                            <div class="employee-cards-container flex flex-col gap-1 justify-center mt-1"></div>
+                        </div>
                         <button
-                            class="add-employee-zone-btn p-1 bg-white text-gray-800 rounded-full w-6 h-6 md:w-8 md:h-8 flex justify-center items-center shadow-md hover:bg-gray-200 text-xs md:text-sm opacity-80"
+                            class="add-employee-zone-btn p-1 bg-white text-gray-800 rounded-full w-6 h-6 md:w-8 md:h-8 flex justify-center items-center shadow-md hover:bg-gray-200 text-xs md:text-sm opacity-80 absolute bottom-2 right-2"
                             title="Add Employee">
                             <i class="fas fa-plus"></i>
                         </button>
                     </div>
 
                     <div id="zone-staff-room"
-                        class="zone-area col-span-2 row-span-4 col-start-1 row-start-3 flex flex-col items-center p-1 md:p-2 text-center text-black mt-16 font-bold relative text-xs md:text-sm gap-1 flex-wrap justify-start"
-                        data-zone="staff-room">
-                        <span>6. Reception</span>
+                        class="zone-area col-span-2 row-span-4 col-start-1 row-start-3 flex flex-col items-center p-1 md:p-2 text-center text-black mt-16 font-bold relative text-xs md:text-sm"
+                        data-zone="reception">
+                        <div class="flex flex-col items-center flex-grow overflow-y-auto w-full">
+                            <span>Reception</span>
+                            <div class="employee-cards-container flex flex-col gap-1 justify-center mt-1"></div>
+                        </div>
                         <button
-                            class="add-employee-zone-btn p-1 bg-white text-gray-800 rounded-full w-6 h-6 md:w-8 md:h-8 flex justify-center items-center shadow-md hover:bg-gray-200 text-xs md:text-sm opacity-80"
+                            class="add-employee-zone-btn p-1 bg-white text-gray-800 rounded-full w-6 h-6 md:w-8 md:h-8 flex justify-center items-center shadow-md hover:bg-gray-200 text-xs md:text-sm opacity-80 absolute bottom-2 right-2"
                             title="Add Employee">
                             <i class="fas fa-plus"></i>
                         </button>
                     </div>
 
                     <div id="zone-archives"
-                        class="zone-area row-span-2 row-start-5 col-start-4 mt-8 flex flex-col items-center p-1 md:p-2 text-center text-gray-900 font-bold relative text-xs md:text-sm gap-1 flex-wrap justify-start"
+                        class="zone-area row-span-2 row-start-5 col-start-4 mt-8 flex flex-col items-center p-1 md:p-2 text-center text-gray-900 font-bold relative text-xs md:text-sm"
                         data-zone="archives">
-                        <span>7. Archives</span>
+                        <div class="flex flex-col items-center flex-grow overflow-y-auto w-full">
+                            <span>Archives</span>
+                            <div class="employee-cards-container flex flex-col gap-1 justify-center mt-1"></div>
+                        </div>
                         <button
-                            class="add-employee-zone-btn p-1 bg-white text-gray-800 rounded-full w-6 h-6 md:w-8 md:h-8 flex justify-center items-center shadow-md hover:bg-gray-200 text-xs md:text-sm opacity-80"
+                            class="add-employee-zone-btn p-1 bg-white text-gray-800 rounded-full w-6 h-6 md:w-8 md:h-8 flex justify-center items-center shadow-md hover:bg-gray-200 text-xs md:text-sm opacity-80 absolute bottom-2 right-2"
                             title="Add Employee">
                             <i class="fas fa-plus"></i>
                         </button>
                     </div>
 
                     <div id="zone-security"
-                        class="zone-area row-span-2 col-start-5 row-start-5 flex flex-col items-center mt-8 p-1 md:p-2 text-center text-gray-900 font-bold relative text-xs md:text-sm gap-1 flex-wrap justify-start"
+                        class="zone-area row-span-2 col-start-5 row-start-5 flex flex-col items-center mt-8 p-1 md:p-2 text-center text-gray-900 font-bold relative text-xs md:text-sm"
                         data-zone="security">
-                        <span>8. Security</span>
+                        <div class="flex flex-col items-center flex-grow overflow-y-auto w-full">
+                            <span>Security</span>
+                            <div class="employee-cards-container flex flex-col gap-1 justify-center mt-1"></div>
+                        </div>
                         <button
-                            class="add-employee-zone-btn p-1 bg-white text-gray-800 rounded-full w-6 h-6 md:w-8 md:h-8 flex justify-center items-center shadow-md hover:bg-gray-200 text-xs md:text-sm opacity-80"
+                            class="add-employee-zone-btn p-1 bg-white text-gray-800 rounded-full w-6 h-6 md:w-8 md:h-8 flex justify-center items-center shadow-md hover:bg-gray-200 text-xs md:text-sm opacity-80 absolute bottom-2 right-2"
                             title="Add Employee">
                             <i class="fas fa-plus"></i>
                         </button>
                     </div>
 
                     <div id="zone-server"
-                        class="zone-area row-span-2 col-start-5 row-start-1 mt-16 flex flex-col items-center p-1 md:p-2 text-center text-gray-900 font-bold relative text-xs md:text-sm gap-1 flex-wrap justify-start"
+                        class="zone-area row-span-2 col-start-5 row-start-1 mt-16 flex flex-col items-center p-1 md:p-2 text-center text-gray-900 font-bold relative text-xs md:text-sm"
                         data-zone="server">
-                        <span>9. Server Room</span>
+                        <div class="flex flex-col items-center flex-grow overflow-y-auto w-full">
+                            <span>Server Room</span>
+                            <div class="employee-cards-container flex flex-col gap-1 justify-center mt-1"></div>
+                        </div>
                         <button
-                            class="add-employee-zone-btn p-1 bg-white text-gray-800 rounded-full w-6 h-6 md:w-8 md:h-8 flex justify-center items-center shadow-md hover:bg-gray-200 text-xs md:text-sm opacity-80"
+                            class="add-employee-zone-btn p-1 bg-white text-gray-800 rounded-full w-6 h-6 md:w-8 md:h-8 flex justify-center items-center shadow-md hover:bg-gray-200 text-xs md:text-sm opacity-80 absolute bottom-2 right-2"
                             title="Add Employee">
                             <i class="fas fa-plus"></i>
                         </button>
@@ -204,6 +223,19 @@
             <div class="flex justify-end pt-4">
                 <button type="button" onclick="closeDetailsModal()"
                     class="py-2 px-4 bg-gray-200 text-red-500 rounded-lg hover:bg-gray-300 font-medium">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Assign Employee Modal -->
+    <div id="assignEmployeeModal" class="fixed inset-0 bg-black/50 hidden flex items-center justify-center z-50 p-4">
+        <div class="bg-white rounded-xl shadow-2xl w-full max-w-sm p-6 space-y-4">
+            <div class="flex justify-between items-center">
+                <h3 class="text-xl font-bold text-gray-800">Assign to <span id="assignZoneName"></span></h3>
+                <button onclick="closeAssignModal()" class="text-gray-500 hover:text-gray-800 text-2xl">&times;</button>
+            </div>
+            <div id="assignEmployeeList" class="space-y-2 max-h-60 overflow-y-auto">
+                <!-- Unassigned employees will be listed here -->
             </div>
         </div>
     </div>
