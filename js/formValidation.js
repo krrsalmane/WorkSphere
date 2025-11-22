@@ -1,10 +1,6 @@
 document.getElementById('open-modal-btn').onclick = () =>
     document.getElementById('employeeModal').classList.remove('hidden');
 
-document.querySelectorAll('.add-employee-zone-btn').forEach(btn => {
-    btn.onclick = () => document.getElementById('employeeModal').classList.remove('hidden');
-});
-
 function closeModal() {
     document.getElementById('employeeModal').classList.add('hidden');
     document.getElementById('employeeForm').reset();
